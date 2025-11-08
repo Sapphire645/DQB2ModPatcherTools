@@ -19,7 +19,7 @@ namespace DQB2ModInstaller
             return bin;
         }
 
-        private static int VERSION = 0;
+        private static int VERSION = 1;
         public static ModFile[] UnpacketFile(String path)
         {
             byte[] bytes = ReadPacketFile(path);
