@@ -30,7 +30,7 @@
             <TextBlock Text="Path to .dqb2.bin file" Foreground="Gray" Margin="8,6" Visibility="{Binding PacketWritten}" IsHitTestVisible="False"/>
             <Button Grid.Column="1" Content=" Browse... " Click="PacketPathUpdate"/>
         </Grid>
-        <Button Content="Patch LINKDATA" Click="PatchAlg" Margin="4"/>
+        <Button IsEnabled="{Binding LINKDATA_Patchable}" Content="Patch LINKDATA" Click="PatchAlg" Margin="4"/>
         <TextBlock Name="Patched" Text="Patched!" Visibility="Hidden" HorizontalAlignment="Center" Margin="10" Foreground="Lime"/>
     </StackPanel>
 </Window>

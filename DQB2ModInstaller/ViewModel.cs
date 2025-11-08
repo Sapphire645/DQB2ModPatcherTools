@@ -29,10 +29,12 @@ namespace DQB2ModInstaller
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LinkdataPath)));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LinkdataWritten)));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LinkdataError)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LINKDATA_Patchable)));
                 }
             }
         }
 
+        public bool LINKDATA_Patchable => _linkdataExists && _packetExists;
         public Brush LinkdataError => !_linkdataExists ? (System.Windows.Media.Brush)System.Windows.Application.Current.Resources["MediumOrangeBrush"] : Brushes.White;
         public Brush PacketError => !_packetExists ? (System.Windows.Media.Brush)System.Windows.Application.Current.Resources["MediumOrangeBrush"] : Brushes.White; 
 
@@ -52,6 +54,7 @@ namespace DQB2ModInstaller
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PacketPath)));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PacketWritten)));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PacketError)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LINKDATA_Patchable)));
                 }
             }
         }
