@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DQB2ModInstaller"
         mc:Ignorable="d"
-        Title="DQB2 Mod Patcher Tool v01" Height="320" Width="700" Background="Black">
+        Title="DQB2 Mod Patcher Tool v01" Height="320" Width="700" Background="Black" Icon="M.ico">
     <StackPanel Margin="20">
         <Border BorderThickness="1" BorderBrush="{DynamicResource DarkBlueBrush}" CornerRadius="2" Margin="0,0,0,20">
             <Button Grid.Column="1" Content="IMPORTANT INFORMATION..." Margin="50,15" Background="Black" BorderThickness="2" Click="Button_Click"/>
