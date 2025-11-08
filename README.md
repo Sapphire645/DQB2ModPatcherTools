@@ -22,3 +22,6 @@ This way, a mod can be compatible with multiple versions of the game, including 
 ## Special thanks
 - [turtle-insect](https://github.com/turtle-insect/)
 - [Benxc](https://gbatemp.net/threads/dragon-quest-builders-2-modding.572482/)
+
+## Requirements
+Windows 10 and .NET 8 I believe.
