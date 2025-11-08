@@ -71,6 +71,8 @@ namespace DQB2ModInstaller
             try
             {
                 res = PacketFile.UnpacketFile(_packetPath);
+                if (res == null)
+                    return false;
             }
             catch (Exception ex)
             {

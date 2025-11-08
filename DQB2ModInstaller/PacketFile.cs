@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DQB2ModInstaller
 {
@@ -18,11 +19,23 @@ namespace DQB2ModInstaller
             return bin;
         }
 
+        private static int VERSION = 0;
         public static ModFile[] UnpacketFile(String path)
         {
             byte[] bytes = ReadPacketFile(path);
 
             ulong program_version = BitConverter.ToUInt64(bytes, 0);
+
+            if(VERSION < (int)program_version)
+            {
+                var res = MessageBox.Show("WARNING: This mod was made for a future release of this program " +
+                    $"(Mod version = {program_version}, program version = {VERSION}). This might crash, but won't corrupt your game. Proceed?","MOD VERSION INCOMPATIBILITY", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if(res == MessageBoxResult.No)
+                {
+                    return null;
+                }
+            }
+
             ulong fileNumber = BitConverter.ToUInt64(bytes, 8);
             ulong linkdata_number_of_versions = BitConverter.ToUInt64(bytes, 16);
 
