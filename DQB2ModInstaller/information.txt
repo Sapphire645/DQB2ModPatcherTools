@@ -1,0 +1,19 @@
+LINKDATA PATCHER TOOL.
+
+This program will patch modded content into your game.
+
+RECOMENDATIONS:
+- BACKUP THE FILES!!! You cannot reverse this, so to go back to the unmodded game you will need to restore your backup.
+- Use the LINKDATA_PATCH.bin instead of modifying the original LINKDATA.bin directly. This file contains the game updates instead of the core game.
+- It is not reccomended to patch multiple mods at once. If you want multiple mods, either ask the creators to make a combined patch, or play them separately.
+
+USAGE:
+- Select the LINKDATA.bin or LINKDATA_PATCH.bin file when prompted. You can find this in the DQB2 steam page Options->Manage->Browse Local Files
+- Select the mod file you want to patch in when prompted. This is a .dqb2.bin file.
+- THE PROGRAM DOES NOT CHECK TO SEE IF THE FILE IS VALID. Do not be dumb. You can corrupt your LINKDATA (HAVE A BACKUP ALWAYS)
+
+If the error "Mod not compatible" appears it means this package does not contain the information for your version.
+
+ALL VERSIONS OF DQB2 ARE COMPATIBLE WITH THIS TOOL, BUT MODS MAY NOT BE. 
+Mods have a set number of versions they support, chosen by the modder. Ask them if you have this error, alongside your version.
+

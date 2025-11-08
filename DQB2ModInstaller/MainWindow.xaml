@@ -1,0 +1,36 @@
+﻿<Window x:Class="DQB2ModInstaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DQB2ModInstaller"
+        mc:Ignorable="d"
+        Title="DQB2 Mod Patcher Tool v01" Height="320" Width="700" Background="Black">
+    <StackPanel Margin="20">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource DarkBlueBrush}" CornerRadius="2" Margin="0,0,0,20">
+            <Button Grid.Column="1" Content="IMPORTANT INFORMATION..." Margin="50,15" Background="Black" BorderThickness="2" Click="Button_Click"/>
+        </Border>
+        <TextBlock Text="LINKDATA Path (LINKDATA.idx / LINKDATA_PATCH.idx)" HorizontalAlignment="Center" Margin="2"/>
+        <Grid Margin="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding LinkdataPath,UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding LinkdataError}"/>
+            <TextBlock Text="Path to .idx file" Foreground="Gray" Margin="8,6" Visibility="{Binding LinkdataWritten}" IsHitTestVisible="False"/>
+            <Button Grid.Column="1" Content=" Browse... " Click="LinkdataPathUpdate"/>
+        </Grid>
+        <TextBlock Text="Mod to patch" HorizontalAlignment="Center" Margin="2"/>
+        <Grid Margin="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding PacketPath,UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding PacketError}"/>
+            <TextBlock Text="Path to .dqb2.bin file" Foreground="Gray" Margin="8,6" Visibility="{Binding PacketWritten}" IsHitTestVisible="False"/>
+            <Button Grid.Column="1" Content=" Browse... " Click="PacketPathUpdate"/>
+        </Grid>
+        <Button Content="Patch LINKDATA" Click="PatchAlg" Margin="4"/>
+        <TextBlock Name="Patched" Text="Patched!" Visibility="Hidden" HorizontalAlignment="Center" Margin="10" Foreground="Lime"/>
+    </StackPanel>
+</Window>
