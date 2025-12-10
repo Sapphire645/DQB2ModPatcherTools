@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -14,10 +9,10 @@ namespace DQB2ModInstaller
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private String _linkdataPath;
+        private String? _linkdataPath;
         public Visibility LinkdataWritten => String.IsNullOrEmpty(_linkdataPath) ? Visibility.Visible : Visibility.Collapsed;
         private bool _linkdataExists;
-        public String LinkdataPath
+        public String? LinkdataPath
         {
             get => _linkdataPath;
             set
@@ -38,11 +33,11 @@ namespace DQB2ModInstaller
         public Brush LinkdataError => !_linkdataExists ? (System.Windows.Media.Brush)System.Windows.Application.Current.Resources["MediumOrangeBrush"] : Brushes.White;
         public Brush PacketError => !_packetExists ? (System.Windows.Media.Brush)System.Windows.Application.Current.Resources["MediumOrangeBrush"] : Brushes.White; 
 
-        private String _packetPath;
+        private String? _packetPath;
         public Visibility PacketWritten => String.IsNullOrEmpty(_packetPath) ? Visibility.Visible : Visibility.Collapsed;
         private bool _packetExists;
         public Visibility Fo => String.IsNullOrEmpty(_packetPath) ? Visibility.Visible : Visibility.Collapsed;
-        public String PacketPath
+        public String? PacketPath
         {
             get => _packetPath;
             set
@@ -63,11 +58,15 @@ namespace DQB2ModInstaller
         public ViewModel(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
+            _packetPath = null;
+            _linkdataPath = null;
         }
 
         public bool PatchAlg()
         {
             ModFile[] res;
+            if (_packetPath == null) return false;
+            if (_linkdataPath == null) return false;
             try
             {
                 res = PacketFile.UnpacketFile(_packetPath);

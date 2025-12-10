@@ -96,7 +96,7 @@ namespace DQB2ModPacker
 
         private void Delete_file(object sender, MouseButtonEventArgs e)
         {
-            ListBox listBox = sender as ListBox;
+            ListBox? listBox = sender as ListBox;
             if (listBox != null)
             {
                 viewModel.DeleteFile(listBox.SelectedIndex);

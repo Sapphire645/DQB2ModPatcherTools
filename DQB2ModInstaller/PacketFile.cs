@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DQB2ModInstaller
 {
     internal class PacketFile
     {
 
-        private static byte[] ReadPacketFile(string linkdataPath)
+        private static byte[]? ReadPacketFile(string linkdataPath)
         {
             //Checks
             if (!System.IO.File.Exists(linkdataPath)) return null;
@@ -20,9 +15,10 @@ namespace DQB2ModInstaller
         }
 
         private static int VERSION = 1;
-        public static ModFile[] UnpacketFile(String path)
+        public static ModFile[]? UnpacketFile(String path)
         {
-            byte[] bytes = ReadPacketFile(path);
+            byte[]? bytes = ReadPacketFile(path);
+            if(bytes == null) return null;  
 
             ulong program_version = BitConverter.ToUInt64(bytes, 0);
 

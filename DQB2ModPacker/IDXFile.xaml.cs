@@ -38,7 +38,7 @@ namespace DQB2ModPacker
 
         private void EditNumber(object sender, MouseButtonEventArgs e)
         {
-            ListBox listBox = sender as ListBox;
+            ListBox? listBox = sender as ListBox;
             if (listBox != null)
             {
                 viewModel.UpdateNumber(listBox.SelectedIndex);

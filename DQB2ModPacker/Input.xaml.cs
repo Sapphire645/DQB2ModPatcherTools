@@ -24,6 +24,7 @@ namespace DQB2ModPacker
         public Input(string prompt = "Enter a value:")
         {
             InitializeComponent();
+            Result = "";
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

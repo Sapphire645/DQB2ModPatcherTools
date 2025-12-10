@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DQB2ModInstaller
 {
     internal static class LINKDATA
     {
 
-        private static byte[] ReadLINKDATA_BIN(string linkdataPath)
+        private static byte[]? ReadLINKDATA_BIN(string linkdataPath)
         {
             //Checks
             if (!System.IO.File.Exists(linkdataPath)) return null;
@@ -27,7 +18,7 @@ namespace DQB2ModInstaller
             return bin;
         }
 
-        private static byte[] ReadLINKDATA_IDX(string linkdataPath)
+        private static byte[]? ReadLINKDATA_IDX(string linkdataPath)
         {
             //Checks
             if (!System.IO.File.Exists(linkdataPath)) return null;
@@ -53,11 +44,11 @@ namespace DQB2ModInstaller
         public static bool SaveToLINKDATA(string linkdataPath, ModFile[] entries)
         {
             //Read
-            byte[] link_bin = LINKDATA.ReadLINKDATA_BIN(linkdataPath);
-            byte[] link_idx = LINKDATA.ReadLINKDATA_IDX(linkdataPath);
+            byte[]? link_bin = LINKDATA.ReadLINKDATA_BIN(linkdataPath);
+            byte[]? link_idx = LINKDATA.ReadLINKDATA_IDX(linkdataPath);
+            if (link_idx == null || link_bin == null) return false;
 
-
-            for(int i = 0; i < entries.Length; i++)
+            for (int i = 0; i < entries.Length; i++)
             {
                 //My current entry
                 ModFile entryCurrent = entries[i];
@@ -129,7 +120,7 @@ namespace DQB2ModInstaller
                 //Should try to not have it write all but......
                 link_bin = bin;
             }
-
+            
             WriteLINKDATA(linkdataPath, link_idx, link_bin);
             return true;
         }
