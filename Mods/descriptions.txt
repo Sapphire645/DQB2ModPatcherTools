@@ -3,3 +3,7 @@
 · UmbrellaMod_SteamV1.7.3.dqb2.bin
 	See https://www.youtube.com/watch?v=XpoF3XQiGgQ
 	This mod replaces Malroth's clothes with a coat and the cypress stick with an umbrella.
+
+· GogglesPonytailHairMod_SteamV1.7.3.dqb2.bin
+	See 
+	This mod replaces the Hipster Ponytail with a custom design that includes longer bangs and the goggles from the historic hat.
